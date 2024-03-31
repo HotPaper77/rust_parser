@@ -3,8 +3,12 @@ use std::io;
 use std::fs::{self, DirEntry};
 use std::path::Path;
 use std::fs::File;
+use std::time::Instant;
 
 fn main() {
+
+let start = Instant::now();
+
 let arguments: Vec<String>=  env::args().collect();
 //first argument is program name, second is first argument passed to the program
 let source_dir = arguments.get(1).unwrap();
@@ -13,6 +17,8 @@ let source_path = Path::new(source_dir);
 
 let _ = visit_dirs(source_path,  &|entry: &DirEntry| process_entry(entry));
 
+
+println!("Parsing Completed!\n Execution Time:{:?} sec",start.elapsed().as_secs());
 }
 
 
