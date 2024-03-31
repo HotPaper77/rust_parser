@@ -1,0 +1,8 @@
+samples
+.dockerignore
+.git
+.gitignore
+dockerfile
+output.txt
+test.sh
+target
